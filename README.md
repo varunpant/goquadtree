@@ -1,4 +1,6 @@
-# :christmas-tree: This is a go port version of my [Java Quadtree](https://github.com/varunpant/Quadtree)
+#quadtree-go
+
+This is a golang port of my [Java Quadtree](https://github.com/varunpant/Quadtree)
 
 This is released under MIT licence, so go ahead and use it in your projects.
 
