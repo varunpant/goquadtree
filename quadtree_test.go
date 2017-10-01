@@ -51,7 +51,6 @@ func getRandTree() *Quadtree {
 }
 
 func TestCreateQuadTree(t *testing.T) {
-
 	qt := getTree()
 	assertEqual(t, 5, qt.Count, "Count must be 5")
 }

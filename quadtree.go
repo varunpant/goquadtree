@@ -186,6 +186,9 @@ func (tree *Quadtree) balance(node Node) {
 	}
 }
 
+
+/*============================ PRIVATE FUNCS ============================ */
+
 func insert(parent *Node, point Point) bool {
 	var result = false
 
