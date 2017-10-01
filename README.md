@@ -1,4 +1,4 @@
-#quadtree-go
+# Quadtree (go)
 
 This is a golang port of my [Java Quadtree](https://github.com/varunpant/Quadtree)
 
