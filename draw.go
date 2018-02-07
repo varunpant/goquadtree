@@ -35,8 +35,43 @@ func drawRect(x1 int, y1 int, x2 int, y2 int,img *image.RGBA) {
 	col = color.RGBA{0, 0, 255, 255} // blue
 	Rect(x1, y1, x2, y2, *img, col)
 
+}
+
+func drawCircle(x, y int,img *image.RGBA){
+
+	fill, radius := color.RGBA{0, 0, 0, 255}, 3
+	x0, y0 := x, y
+	f := 1 - radius
+	ddF_x, ddF_y := 1, -2*radius
+	x, y = 0, radius
+
+	img.Set(x0, y0+radius, fill)
+	img.Set(x0, y0-radius, fill)
+	img.Set(x0+radius, y0, fill)
+	img.Set(x0-radius, y0, fill)
+
+	for x < y {
+		if f >= 0 {
+			y--
+			ddF_y += 2
+			f += ddF_y
+		}
+		x++
+		ddF_x += 2
+		f += ddF_x
+		img.Set(x0+x, y0+y, fill)
+		img.Set(x0-x, y0+y, fill)
+		img.Set(x0+x, y0-y, fill)
+		img.Set(x0-x, y0-y, fill)
+		img.Set(x0+y, y0+x, fill)
+		img.Set(x0-y, y0+x, fill)
+		img.Set(x0+y, y0-x, fill)
+		img.Set(x0-y, y0-x, fill)
+	}
+
 
 }
+
 func drawPoint(x, y int,img *image.RGBA)  {
 	img.Set(x, y, color.RGBA{255, 0, 0, 255})
 }

@@ -91,6 +91,16 @@ func (tree *Quadtree) remove(x float64, y float64) {
 		tree.Count--
 		tree.balance(node)
 	}
+}
+
+func (tree *Quadtree) clear() {
+	tree.Root.NW = nil
+	tree.Root.NE = nil
+	tree.Root.SW = nil
+	tree.Root.SE = nil
+	tree.Root.NodeType = EMPTY
+	tree.Root.Point = Point{}
+	tree.Count = 0
 
 }
 

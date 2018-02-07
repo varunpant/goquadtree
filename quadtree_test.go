@@ -18,7 +18,7 @@ func assertEqual(t *testing.T, expected interface{}, actual interface{}, message
 	t.Fatal(message)
 }
 
-var img = image.NewRGBA(image.Rect(0, 0, 101, 101))
+var img = image.NewRGBA(image.Rect(0, 0, 1025, 1025))
 
 func drawBBOX(x float64, y float64, w float64, h float64, pt Point) {
 
@@ -27,7 +27,7 @@ func drawBBOX(x float64, y float64, w float64, h float64, pt Point) {
 
 func drawPT(x float64, y float64, w float64, h float64, pt Point) {
 
-	drawPoint(int(pt.X), int(pt.Y), img)
+	drawCircle(int(pt.X), int(pt.Y), img)
 }
 
 func getTree() *Quadtree {
@@ -81,7 +81,12 @@ func TestSearchQuadTree(t *testing.T) {
 
 func TestTraverseTree(t *testing.T) {
 
-	qt := getRandTree()
+	qt := NewQuadTree(0, 0, 1024, 1024)
+	rand.Seed(time.Now().Unix())
+	for i := 0; i < 1000; i++ {
+
+		qt.set(float64(rand.Intn(1024)), float64(rand.Intn(1024)), float64(i))
+	}
 
 	var f traverseFunc
 	f = drawBBOX
